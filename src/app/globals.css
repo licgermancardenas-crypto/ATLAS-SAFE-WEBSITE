@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  --background: #060f0c;
+  --background-elevated: #0d1f19;
+  --background-elevated-2: #112a21;
+  --border-subtle: #17342a;
+  --foreground: #eafbf3;
+  --muted: #93ab9f;
+  --accent: #22e08a;
+  --accent-soft: #17a866;
+  --accent-dim: #0f4a34;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-background-elevated-2: var(--background-elevated-2);
+  --color-border-subtle: var(--border-subtle);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-dim: var(--accent-dim);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(34, 224, 138, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 224, 138, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
