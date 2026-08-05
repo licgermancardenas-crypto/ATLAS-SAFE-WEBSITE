@@ -43,14 +43,14 @@ export function Manifesto() {
               <p>
                 No vendemos herramientas ni reportes de cumplimiento.{" "}
                 <strong>Entregamos certeza operativa.</strong> Cada engagement empieza con un
-                diagnóstico OSINT gratuito: mostramos en 30 minutos lo que un adversario puede ver
-                de tu organización desde internet, sin acceder a ninguno de tus sistemas.
+                diagnóstico OSINT: mostramos en 30 minutos lo que un adversario puede ver de tu
+                organización desde internet, sin acceder a ninguno de tus sistemas.
               </p>
             </Reveal>
             <Reveal delay={3} className="manifesto-block">
               <p>
-                Si hay hallazgos —y los hay en el 95% de los casos— los presentamos antes de
-                firmar cualquier contrato. Primero mostramos. Después facturamos.
+                Si hay hallazgos —y los hay en el 95% de los casos— los presentamos con un plan de
+                acción priorizado por riesgo real, antes de avanzar a cualquier etapa siguiente.
               </p>
             </Reveal>
             <Reveal delay={4} className="diff-list">

@@ -41,7 +41,7 @@ export function Hero() {
           </p>
           <div className="hero-cta-group">
             <a href="#contact" className="cta-primary">
-              Diagnóstico gratuito →
+              Solicitar diagnóstico →
             </a>
             <a href="#services" className="cta-secondary">
               Ver servicios

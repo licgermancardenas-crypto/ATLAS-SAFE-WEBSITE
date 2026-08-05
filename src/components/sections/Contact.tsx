@@ -17,7 +17,7 @@ const sectorOptions = [
 ];
 
 const serviceOptions = [
-  "Diagnóstico OSINT gratuito",
+  "Diagnóstico OSINT",
   "Pentest / Red Team",
   "SOC as a Service",
   "Compliance BCRA / PCI",
@@ -96,7 +96,7 @@ export function Contact() {
 
     window.setTimeout(() => {
       window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-        "Diagnóstico gratuito — " + nombre,
+        "Solicitud de diagnóstico — " + nombre,
       )}&body=${encodeURIComponent(body)}`;
       setStatus("sent");
     }, 900);
@@ -122,12 +122,11 @@ export function Contact() {
               <br />
               en 30 minutos.
               <br />
-              <em>Sin costo.</em>
+              <em>A medida.</em>
             </h2>
             <p className="contact-desc">
-              Antes de cualquier contrato, analizamos tu superficie de ataque con datos públicos y
-              mostramos hallazgos reales en 30 minutos. Sin acceso a tus sistemas. Sin
-              compromisos.
+              Analizamos tu superficie de ataque con datos públicos y te mostramos hallazgos
+              reales en 30 minutos. Sin acceso a tus sistemas.
             </p>
             <div className="contact-points">
               <div className="cp-row">
@@ -235,7 +234,7 @@ export function Contact() {
                 />
               </div>
               <button type="submit" className="cf-submit" disabled={status !== "idle"}>
-                {status === "idle" && "Solicitar diagnóstico gratuito →"}
+                {status === "idle" && "Solicitar diagnóstico →"}
                 {status === "sending" && "Enviando..."}
                 {status === "sent" && "✓ Recibido — te contactamos en menos de 4 horas"}
               </button>

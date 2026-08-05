@@ -55,7 +55,7 @@ export function Nav() {
 
       <div className="nav-right">
         <a href="#contact" className="nav-cta">
-          Diagnóstico gratuito →
+          Solicitar diagnóstico →
         </a>
         <button
           type="button"
@@ -83,7 +83,7 @@ export function Nav() {
             </a>
           ))}
           <a href="#contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
-            Diagnóstico gratuito →
+            Solicitar diagnóstico →
           </a>
         </div>
       ) : null}

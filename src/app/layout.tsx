@@ -12,7 +12,7 @@ const sans = Inter({
 export const metadata: Metadata = {
   title: "ATLAS SAFE — La amenaza ya está adentro | Ciberseguridad e Inteligencia",
   description:
-    "ATLAS SAFE detecta, contiene y elimina amenazas digitales antes de que se conviertan en incidentes. Pentest, SOC 24/7, ATLAS SENTINEL y respuesta a incidentes. Diagnóstico OSINT gratuito en 30 minutos.",
+    "ATLAS SAFE detecta, contiene y elimina amenazas digitales antes de que se conviertan en incidentes. Pentest, SOC 24/7, ATLAS SENTINEL y respuesta a incidentes. Diagnóstico OSINT en 30 minutos.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
