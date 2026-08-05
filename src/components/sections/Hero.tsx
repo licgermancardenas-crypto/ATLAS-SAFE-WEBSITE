@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Globe } from "@/components/Globe";
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -24,6 +25,7 @@ export function Hero() {
     <section className="hero" id="home" ref={heroRef}>
       <div id="spotlight" ref={spotlightRef} />
       <div className="hero-accent-line" />
+      <Globe className="hero-globe" />
       <div className="hero-content">
         <div className="hero-pre">Ciberseguridad e Inteligencia de Amenazas</div>
         <h1 className="hero-title">
