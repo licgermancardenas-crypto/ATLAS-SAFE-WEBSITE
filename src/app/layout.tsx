@@ -1,34 +1,40 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const serif = Cormorant_Garamond({
+  variable: "--font-serif",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const sans = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
+
+const mono = Space_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "ATLAS SAFE — Pentest, SOC 24/7 y Cumplimiento | Ciberseguridad Argentina",
+  title: "ATLAS SAFE — La amenaza ya está adentro | Ciberseguridad e Inteligencia",
   description:
-    "La defensa cibernética que su empresa todavía no contrató. Pentest, SOC 24/7, cumplimiento regulatorio (BCRA, PCI-DSS, ISO 27001) y respuesta a incidentes. Equipo argentino, pricing dolarizado.",
+    "ATLAS SAFE detecta, contiene y elimina amenazas digitales antes de que se conviertan en incidentes. Pentest, SOC 24/7, ATLAS SENTINEL y respuesta a incidentes. Diagnóstico OSINT gratuito en 30 minutos.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${serif.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-background"
-        >
+      <body className="min-h-full flex flex-col">
+        <a href="#home" className="skip-link">
           Saltar al contenido principal
         </a>
         {children}
