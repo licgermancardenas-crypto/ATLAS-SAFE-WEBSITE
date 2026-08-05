@@ -97,13 +97,8 @@ nav.scrolled {
 .nav-mark {
   width: 28px;
   height: 28px;
-  background: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  color: var(--void);
-  font-weight: 700;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 .nav-wordmark {
   font-family: var(--sans);

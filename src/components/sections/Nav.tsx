@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const links = [
   { href: "#services", label: "Servicios" },
@@ -37,9 +38,7 @@ export function Nav() {
   return (
     <nav className={scrolled ? "scrolled" : ""}>
       <div className="nav-left">
-        <div className="nav-mark" aria-hidden="true">
-          ▲
-        </div>
+        <Image src="/logo.png" alt="" width={28} height={28} className="nav-mark" priority />
         <span className="nav-wordmark">ATLAS SAFE</span>
         <div className="nav-divider" />
         <span className="nav-corp">ATLAS CORP</span>

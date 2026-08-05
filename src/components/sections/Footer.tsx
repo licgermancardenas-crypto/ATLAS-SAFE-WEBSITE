@@ -1,10 +1,10 @@
+import Image from "next/image";
+
 export function Footer() {
   return (
     <footer>
       <div className="footer-logo">
-        <div className="nav-mark" aria-hidden="true">
-          ▲
-        </div>
+        <Image src="/logo.png" alt="" width={28} height={28} className="nav-mark" />
         ATLAS SAFE
       </div>
       <div className="footer-links">
