@@ -10,9 +10,7 @@
   --muted: #526058;
   --dim: #2a3a30;
   --rule: rgba(232, 237, 232, 0.07);
-  --serif: var(--font-serif), Georgia, serif;
   --sans: var(--font-sans), system-ui, sans-serif;
-  --mono: var(--font-mono), monospace;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 *,
@@ -119,7 +117,7 @@ nav.scrolled {
   background: var(--rule);
 }
 .nav-corp {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.14em;
@@ -240,7 +238,7 @@ textarea:focus-visible {
   z-index: 1;
 }
 .hero-pre {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.2em;
@@ -257,7 +255,7 @@ textarea:focus-visible {
   background: var(--muted);
 }
 .hero-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-weight: 300;
   font-size: clamp(64px, 10.5vw, 152px);
   line-height: 0.95;
@@ -338,7 +336,7 @@ textarea:focus-visible {
   gap: 10px;
 }
 .hero-scroll-cue span {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 8px;
   color: var(--muted);
   letter-spacing: 0.16em;
@@ -375,7 +373,7 @@ textarea:focus-visible {
   gap: 0;
   white-space: nowrap;
   animation: ticker 40s linear infinite;
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.06em;
@@ -411,7 +409,7 @@ textarea:focus-visible {
   margin: 0 auto;
 }
 .s-label {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 9px;
   color: var(--accent);
   letter-spacing: 0.2em;
@@ -428,7 +426,7 @@ textarea:focus-visible {
   background: var(--accent);
 }
 .s-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(40px, 5vw, 68px);
   font-weight: 300;
   line-height: 1.06;
@@ -454,7 +452,7 @@ textarea:focus-visible {
   top: 100px;
 }
 .manifesto-lede {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(22px, 2.4vw, 30px);
   font-weight: 300;
   line-height: 1.55;
@@ -490,7 +488,7 @@ textarea:focus-visible {
   align-items: start;
 }
 .diff-index {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 9px;
   color: var(--accent);
   letter-spacing: 0.1em;
@@ -542,7 +540,7 @@ textarea:focus-visible {
   background: rgba(232, 237, 232, 0.03);
 }
 .svc-n {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.08em;
@@ -550,7 +548,7 @@ textarea:focus-visible {
   align-self: start;
 }
 .svc-name {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(20px, 2vw, 28px);
   font-weight: 400;
   line-height: 1.15;
@@ -563,7 +561,7 @@ textarea:focus-visible {
   max-width: 560px;
 }
 .svc-new {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 8px;
   color: var(--accent);
   border: 1px solid rgba(0, 184, 112, 0.25);
@@ -573,7 +571,7 @@ textarea:focus-visible {
   margin-left: 10px;
 }
 .svc-price {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 10px;
   color: var(--cream);
   text-align: right;
@@ -603,7 +601,7 @@ textarea:focus-visible {
   background: var(--deep);
 }
 .num-val {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(60px, 8vw, 100px);
   font-weight: 300;
   line-height: 0.9;
@@ -614,7 +612,7 @@ textarea:focus-visible {
   color: var(--accent);
 }
 .num-label {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.12em;
@@ -646,7 +644,7 @@ textarea:focus-visible {
   border-collapse: collapse;
 }
 .inc-table thead th {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 8px;
   color: var(--muted);
   letter-spacing: 0.16em;
@@ -671,7 +669,7 @@ textarea:focus-visible {
   vertical-align: middle;
 }
 .td-yr {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 10px;
   color: var(--muted);
   width: 56px;
@@ -687,7 +685,7 @@ textarea:focus-visible {
 }
 .td-cost {
   text-align: right;
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 11px;
   white-space: nowrap;
 }
@@ -708,13 +706,13 @@ textarea:focus-visible {
   text-align: center;
 }
 .roi-n {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 36px;
   font-weight: 300;
   color: var(--accent);
 }
 .roi-l {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 8px;
   color: var(--muted);
   letter-spacing: 0.1em;
@@ -735,7 +733,7 @@ textarea:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 8px;
   color: var(--accent);
   letter-spacing: 0.14em;
@@ -789,7 +787,7 @@ textarea:focus-visible {
   justify-content: space-between;
 }
 .panel-title {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.1em;
@@ -798,7 +796,7 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 8px;
   color: var(--accent);
 }
@@ -832,14 +830,14 @@ textarea:focus-visible {
   border-right: none;
 }
 .pkpi-v {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 28px;
   font-weight: 400;
   line-height: 1;
   margin-bottom: 3px;
 }
 .pkpi-l {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 7px;
   color: var(--muted);
   letter-spacing: 0.1em;
@@ -860,7 +858,7 @@ textarea:focus-visible {
   background: rgba(255, 255, 255, 0.02);
 }
 .psev {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 7px;
   font-weight: 700;
   padding: 2px 6px;
@@ -889,7 +887,7 @@ textarea:focus-visible {
   color: var(--cream);
 }
 .pmeta {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 8px;
   color: var(--muted);
 }
@@ -937,7 +935,7 @@ textarea:focus-visible {
   margin-bottom: 14px;
 }
 .cc-tk {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 9px;
   color: var(--accent);
   letter-spacing: 0.04em;
@@ -1012,7 +1010,7 @@ textarea:focus-visible {
   gap: 5px;
 }
 .cf-label {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 8px;
   color: rgba(6, 6, 8, 0.4);
   letter-spacing: 0.14em;
@@ -1077,7 +1075,7 @@ textarea:focus-visible {
   opacity: 0.85;
 }
 .cf-note {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 8px;
   color: rgba(6, 6, 8, 0.3);
   text-align: center;
@@ -1116,7 +1114,7 @@ footer {
   color: var(--cream);
 }
 .footer-copy {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.06em;

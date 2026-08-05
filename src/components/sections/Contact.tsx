@@ -111,7 +111,7 @@ export function Contact() {
             <h2
               className="s-title"
               style={{
-                fontFamily: "var(--serif)",
+                fontFamily: "var(--sans)",
                 fontSize: "clamp(38px,4.5vw,60px)",
                 fontWeight: 300,
                 lineHeight: 1.06,

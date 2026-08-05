@@ -1,24 +1,12 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter, Space_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-const serif = Cormorant_Garamond({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-});
 
 const sans = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
-
-const mono = Space_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -29,10 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="es"
-      className={`${serif.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
-    >
+    <html lang="es" className={`${sans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <a href="#home" className="skip-link">
           Saltar al contenido principal
