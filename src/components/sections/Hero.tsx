@@ -41,13 +41,13 @@ export function Hero() {
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
             href="#contacto"
-            className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-background hover:bg-accent-soft transition-colors"
+            className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-background transition-colors hover:bg-accent-soft active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Agendar diagnóstico sin costo
           </Link>
           <Link
             href="#servicios"
-            className="rounded-full border border-border-subtle px-6 py-3 text-sm font-medium text-foreground hover:border-accent/60 transition-colors"
+            className="rounded-full border border-border-subtle px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent/60 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Ver servicios
           </Link>

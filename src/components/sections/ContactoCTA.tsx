@@ -26,13 +26,13 @@ export function ContactoCTA() {
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <a
             href="mailto:lic.germancardenas@gmail.com?subject=Diagn%C3%B3stico%20ATLAS%20SAFE"
-            className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-background hover:bg-accent-soft transition-colors"
+            className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-background transition-colors hover:bg-accent-soft active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Agendar diagnóstico
           </a>
           <a
             href="mailto:lic.germancardenas@gmail.com?subject=Solicitud%20de%20propuesta%20ATLAS%20SAFE"
-            className="rounded-full border border-border-subtle px-6 py-3 text-sm font-medium text-foreground hover:border-accent/60 transition-colors"
+            className="rounded-full border border-border-subtle px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent/60 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Solicitar propuesta
           </a>
@@ -45,7 +45,7 @@ export function ContactoCTA() {
           <p className="mt-1">
             <a
               href="mailto:lic.germancardenas@gmail.com"
-              className="hover:text-accent transition-colors"
+              className="rounded-sm transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               lic.germancardenas@gmail.com
             </a>
