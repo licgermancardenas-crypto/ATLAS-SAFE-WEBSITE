@@ -25,10 +25,10 @@ export function Manifesto() {
         <div className="manifesto-layout">
           <Reveal className="manifesto-left">
             <div className="s-label">Por qué existimos</div>
-            <p className="manifesto-lede">
+            <h2 className="manifesto-lede">
               El mercado argentino de ciberseguridad tiene servicios técnicos. Lo que no tiene es
               inteligencia contextual.
-            </p>
+            </h2>
           </Reveal>
           <div className="manifesto-right">
             <Reveal delay={1} className="manifesto-block">

@@ -47,7 +47,9 @@ export function Numbers() {
   return (
     <section className="section numbers" id="impact">
       <div className="inner">
-        <Reveal className="s-label">El contexto</Reveal>
+        <Reveal>
+          <h2 className="s-label">El contexto</h2>
+        </Reveal>
         <div className="numbers-grid" style={{ marginTop: 40 }}>
           <Reveal className="num-cell">
             <div className="num-val" ref={n1AnchorRef}>

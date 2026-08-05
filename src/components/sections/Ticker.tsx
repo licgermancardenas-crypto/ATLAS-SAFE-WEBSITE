@@ -13,14 +13,21 @@ export function Ticker() {
   const doubled = [...items, ...items];
 
   return (
-    <div className="ticker" aria-hidden="true">
-      <div className="ticker-inner">
+    <div className="ticker">
+      <div className="ticker-inner" aria-hidden="true">
         {doubled.map((item, i) => (
           <span className="ticker-item" key={i}>
             <span className="tag">{item.tag}</span> {item.text}
           </span>
         ))}
       </div>
+      <ul className="sr-only">
+        {items.map((item, i) => (
+          <li key={i}>
+            {item.tag}: {item.text}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

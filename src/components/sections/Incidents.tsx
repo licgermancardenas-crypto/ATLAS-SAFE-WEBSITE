@@ -106,7 +106,13 @@ export function Incidents() {
                       <div className="td-org">{inc.org}</div>
                       <div className="td-type">{inc.type}</div>
                     </td>
-                    <td className={`td-cost ${inc.severity}`}>{inc.cost}</td>
+                    <td className={`td-cost ${inc.severity}`}>
+                      <span aria-hidden="true">{inc.severity === "crit" ? "▲ " : "● "}</span>
+                      <span className="sr-only">
+                        {inc.severity === "crit" ? "Crítico: " : "Alto: "}
+                      </span>
+                      {inc.cost}
+                    </td>
                   </tr>
                 ))}
               </tbody>

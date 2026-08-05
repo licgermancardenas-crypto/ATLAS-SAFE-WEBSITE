@@ -391,9 +391,18 @@ function ChevronIcon({ open }: { open: boolean }) {
   );
 }
 
+function slugify(title: string) {
+  return title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function PracticeGroup({ practice, defaultOpen }: { practice: Practice; defaultOpen: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
-  const bodyId = `practice-${practice.title.toLowerCase().replace(/\s+/g, "-")}`;
+  const bodyId = `practice-${slugify(practice.title)}`;
 
   return (
     <Reveal className="practice-group">
@@ -411,20 +420,18 @@ function PracticeGroup({ practice, defaultOpen }: { practice: Practice; defaultO
         </span>
         <ChevronIcon open={open} />
       </button>
-      {open ? (
-        <div id={bodyId} className="svc-list">
-          {practice.services.map((s) => (
-            <div className="svc" key={s.n}>
-              <span className="svc-n">{s.n}</span>
-              <div className="svc-body">
-                <div className="svc-name">{s.name}</div>
-                <div className="svc-desc">{s.desc}</div>
-              </div>
-              <div className="svc-price">Cotización a medida</div>
+      <div id={bodyId} className="svc-list" hidden={!open}>
+        {practice.services.map((s) => (
+          <div className="svc" key={s.n}>
+            <span className="svc-n">{s.n}</span>
+            <div className="svc-body">
+              <div className="svc-name">{s.name}</div>
+              <div className="svc-desc">{s.desc}</div>
             </div>
-          ))}
-        </div>
-      ) : null}
+            <div className="svc-price">Cotización a medida</div>
+          </div>
+        ))}
+      </div>
     </Reveal>
   );
 }

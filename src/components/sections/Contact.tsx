@@ -32,7 +32,15 @@ const CONTACT_EMAIL = "contacto@atlassafe.com.ar";
 
 function PinIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="13" height="13">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      width="13"
+      height="13"
+      aria-hidden="true"
+    >
       <path d="M12 21s7-6.1 7-11.6A7 7 0 0 0 5 9.4C5 14.9 12 21 12 21Z" />
       <circle cx="12" cy="9.4" r="2.4" />
     </svg>
@@ -40,7 +48,15 @@ function PinIcon() {
 }
 function MailIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="13" height="13">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      width="13"
+      height="13"
+      aria-hidden="true"
+    >
       <rect x="3.5" y="5.5" width="17" height="13" rx="1.5" />
       <path d="M4.5 6.5 12 13l7.5-6.5" />
     </svg>
@@ -48,7 +64,15 @@ function MailIcon() {
 }
 function ClockIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="13" height="13">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      width="13"
+      height="13"
+      aria-hidden="true"
+    >
       <circle cx="12" cy="12" r="8.5" />
       <path d="M12 7.5V12l3 2" />
     </svg>
@@ -56,7 +80,15 @@ function ClockIcon() {
 }
 function LockIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="13" height="13">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      width="13"
+      height="13"
+      aria-hidden="true"
+    >
       <rect x="5.5" y="10.5" width="13" height="9" rx="1.5" />
       <path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" />
     </svg>
@@ -168,6 +200,7 @@ export function Contact() {
                     id="nombre"
                     name="nombre"
                     type="text"
+                    autoComplete="name"
                     placeholder="Nombre completo"
                     required
                   />
@@ -181,6 +214,7 @@ export function Contact() {
                     id="empresa"
                     name="empresa"
                     type="text"
+                    autoComplete="organization"
                     placeholder="Organización"
                   />
                 </div>
@@ -194,6 +228,8 @@ export function Contact() {
                   id="email"
                   name="email"
                   type="email"
+                  autoComplete="email"
+                  spellCheck={false}
                   placeholder="correo@empresa.com"
                   required
                 />
@@ -230,12 +266,12 @@ export function Contact() {
                   className="cf-textarea"
                   id="contexto"
                   name="contexto"
-                  placeholder="Contanos brevemente tu situación actual..."
+                  placeholder="Contanos brevemente tu situación actual…"
                 />
               </div>
               <button type="submit" className="cf-submit" disabled={status !== "idle"}>
                 {status === "idle" && "Solicitar diagnóstico →"}
-                {status === "sending" && "Enviando..."}
+                {status === "sending" && "Enviando…"}
                 {status === "sent" && "✓ Recibido — te contactamos en menos de 4 horas"}
               </button>
               <p className="cf-note">Sin spam · Sin compromisos · Todo bajo NDA</p>

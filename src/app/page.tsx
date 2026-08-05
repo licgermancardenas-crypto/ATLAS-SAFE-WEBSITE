@@ -14,15 +14,17 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <Hero />
-      <Ticker />
-      <Manifesto />
-      <Services />
-      <Numbers />
-      <Incidents />
-      <Sentinel />
-      <Clients />
-      <Contact />
+      <main>
+        <Hero />
+        <Ticker />
+        <Manifesto />
+        <Services />
+        <Numbers />
+        <Incidents />
+        <Sentinel />
+        <Clients />
+        <Contact />
+      </main>
       <Footer />
     </>
   );
