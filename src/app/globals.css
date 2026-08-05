@@ -576,6 +576,51 @@ textarea:focus-visible {
   padding-top: 5px;
 }
 
+.practice-list {
+  border-top: 1px solid var(--rule);
+}
+.practice-group {
+  border-bottom: 1px solid var(--rule);
+}
+.practice-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--cream);
+}
+.practice-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.practice-title {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+}
+.practice-count {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.practice-chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.practice-group .svc-list {
+  border-top: none;
+  padding-bottom: 8px;
+}
+
 /* ── NUMBERS ──────────────────────────────────────────────────────────── */
 .numbers {
   background: var(--surface);
