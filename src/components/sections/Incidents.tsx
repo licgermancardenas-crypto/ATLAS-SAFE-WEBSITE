@@ -76,7 +76,9 @@ export function Incidents() {
                 <div className="roi-l">COSTO INCIDENTE PAMI</div>
               </div>
               <div>
-                <div className="roi-n">USD 24K</div>
+                <div className="roi-n" style={{ fontSize: 22 }}>
+                  A medida
+                </div>
                 <div className="roi-l">1 AÑO SOC PREVENTIVO</div>
               </div>
               <div>
