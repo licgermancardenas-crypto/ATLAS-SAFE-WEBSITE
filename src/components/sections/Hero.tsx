@@ -29,11 +29,11 @@ export function Hero() {
       <div className="hero-content">
         <div className="hero-pre">Ciberseguridad e Inteligencia de Amenazas</div>
         <h1 className="hero-title">
-          La amenaza
+          La inteligencia
           <br />
-          ya está
+          detrás de
           <br />
-          <span className="italic">adentro.</span>
+          <span className="italic">cada defensa.</span>
         </h1>
         <div className="hero-bottom">
           <p className="hero-sub">
