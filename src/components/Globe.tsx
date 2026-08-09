@@ -47,18 +47,45 @@ export function Globe({ className }: { className?: string }) {
     };
     window.addEventListener("resize", onResize);
 
-    if (!prefersReducedMotion) {
-      const animate = () => {
-        phi += 0.0022;
-        globe.update({ phi });
-        frame = requestAnimationFrame(animate);
-      };
+    // A full-size WebGL canvas redrawing at 60fps behind the rest of the page
+    // is the single most expensive thing here, so it only runs while the hero
+    // is actually on screen and the tab is in the foreground.
+    let onScreen = false;
+
+    const animate = () => {
+      phi += 0.0022;
+      globe.update({ phi });
       frame = requestAnimationFrame(animate);
-    }
+    };
+
+    const start = () => {
+      if (frame || prefersReducedMotion || !onScreen || document.hidden) return;
+      frame = requestAnimationFrame(animate);
+    };
+    const stop = () => {
+      if (!frame) return;
+      cancelAnimationFrame(frame);
+      frame = 0;
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        onScreen = entry.isIntersecting;
+        if (onScreen) start();
+        else stop();
+      },
+      { threshold: 0 },
+    );
+    observer.observe(wrap);
+
+    const onVisibility = () => (document.hidden ? stop() : start());
+    document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
-      if (frame) cancelAnimationFrame(frame);
+      stop();
       cancelAnimationFrame(readyFrame);
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("resize", onResize);
       globe.destroy();
     };

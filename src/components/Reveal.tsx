@@ -33,8 +33,10 @@ export function Reveal({
           observer.disconnect();
         });
       },
-      // Start slightly before the element enters, so it lands already settled.
-      { threshold: 0.05, rootMargin: "0px 0px -8% 0px" },
+      // Fire ~240px before the element reaches the viewport, so by the time it
+      // is actually on screen the entrance has already finished. A negative
+      // bottom margin here is what made scrolling feel like waiting on a load.
+      { threshold: 0, rootMargin: "0px 0px 240px 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();

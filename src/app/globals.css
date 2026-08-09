@@ -109,7 +109,9 @@ nav {
 }
 nav.scrolled {
   background: rgba(6, 6, 8, 0.94);
-  backdrop-filter: blur(24px) saturate(180%);
+  /* Small radius on purpose: the bar is already 94% opaque, and blur cost
+     scales with the radius on every scroll frame. */
+  backdrop-filter: blur(8px);
   border-color: var(--rule);
 }
 .nav-left {
@@ -1799,22 +1801,22 @@ footer {
 /* ── REVEAL ───────────────────────────────────────────────────────────── */
 .r {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(14px);
   transition:
-    opacity 0.8s var(--ease),
-    transform 0.8s var(--ease);
+    opacity 0.45s var(--ease),
+    transform 0.45s var(--ease);
 }
 .r.d1 {
-  transition-delay: 0.1s;
+  transition-delay: 0.06s;
 }
 .r.d2 {
-  transition-delay: 0.2s;
+  transition-delay: 0.12s;
 }
 .r.d3 {
-  transition-delay: 0.3s;
+  transition-delay: 0.18s;
 }
 .r.d4 {
-  transition-delay: 0.4s;
+  transition-delay: 0.24s;
 }
 .r.vis {
   opacity: 1;
