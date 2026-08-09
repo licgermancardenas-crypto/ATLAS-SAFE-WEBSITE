@@ -18,13 +18,23 @@ export function Reveal({
     const el = ref.current;
     if (!el) return;
 
+    // No entrance animation when the user asked for reduced motion.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const id = requestAnimationFrame(() => setVisible(true));
+      return () => cancelAnimationFrame(id);
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setVisible(true);
+          if (!entry.isIntersecting) return;
+          setVisible(true);
+          // One-shot: nothing re-hides, so stop paying for the observation.
+          observer.disconnect();
         });
       },
-      { threshold: 0.08 },
+      // Start slightly before the element enters, so it lands already settled.
+      { threshold: 0.05, rootMargin: "0px 0px -8% 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();

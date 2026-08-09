@@ -2,16 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
-const links = [
-  { href: "#services", label: "Servicios" },
-  { href: "#sentinel", label: "ATLAS SENTINEL" },
-  { href: "#incidents", label: "Por qué ahora" },
-  { href: "#clients", label: "Clientes" },
-  { href: "#contact", label: "Contacto" },
-];
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { navLinks } from "@/data/site";
 
 export function Nav() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -35,27 +31,39 @@ export function Nav() {
     };
   }, [menuOpen]);
 
+  const isCurrent = (href: string) => !href.includes("#") && pathname === href;
+
   return (
     <nav className={scrolled ? "scrolled" : ""}>
-      <div className="nav-left">
+      <Link
+        href="/"
+        className="nav-left"
+        aria-label="ATLAS SAFE — inicio"
+        onClick={() => setMenuOpen(false)}
+      >
         <Image src="/logo.png" alt="" width={28} height={28} className="nav-mark" priority />
         <span className="nav-wordmark">ATLAS SAFE</span>
-        <div className="nav-divider" />
+        <span className="nav-divider" />
         <span className="nav-corp">ATLAS CORP</span>
-      </div>
+      </Link>
 
       <div className="nav-center">
-        {links.map((link) => (
-          <a key={link.href} href={link.href}>
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            aria-current={isCurrent(link.href) ? "page" : undefined}
+            className={isCurrent(link.href) ? "is-current" : undefined}
+          >
             {link.label}
-          </a>
+          </Link>
         ))}
       </div>
 
       <div className="nav-right">
-        <a href="#contact" className="nav-cta">
-          Solicitar diagnóstico →
-        </a>
+        <Link href="/#contact" className="nav-cta">
+          Solicitar diagnóstico <span aria-hidden="true">→</span>
+        </Link>
         <button
           type="button"
           className="nav-burger"
@@ -76,14 +84,19 @@ export function Nav() {
 
       {menuOpen ? (
         <div id="mobile-menu" className="mobile-menu">
-          {links.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={isCurrent(link.href) ? "page" : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a href="#contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
-            Solicitar diagnóstico →
-          </a>
+          <Link href="/#contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
+            Solicitar diagnóstico <span aria-hidden="true">→</span>
+          </Link>
         </div>
       ) : null}
     </nav>

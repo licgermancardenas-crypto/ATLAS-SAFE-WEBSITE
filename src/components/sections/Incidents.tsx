@@ -70,21 +70,17 @@ export function Incidents() {
               El patrón en Argentina es sistemático. Cada organización vulnerada creyó que no le
               iba a pasar. La pregunta no es si va a suceder — es cuándo y si estarás preparado.
             </p>
-            <div className="roi-line" style={{ marginTop: 40 }}>
+            <div className="roi-line">
               <div>
                 <div className="roi-n">USD 5M</div>
                 <div className="roi-l">COSTO INCIDENTE PAMI</div>
               </div>
               <div>
-                <div className="roi-n" style={{ fontSize: 22 }}>
-                  A medida
-                </div>
+                <div className="roi-n roi-n-sm">A medida</div>
                 <div className="roi-l">1 AÑO SOC PREVENTIVO</div>
               </div>
               <div>
-                <div className="roi-n" style={{ color: "var(--accent)" }}>
-                  125×
-                </div>
+                <div className="roi-n roi-n-accent">125×</div>
                 <div className="roi-l">ROI DE LA PREVENCIÓN</div>
               </div>
             </div>

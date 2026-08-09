@@ -140,16 +140,7 @@ export function Contact() {
         <div className="contact-layout">
           <Reveal>
             <div className="s-label">Empezá hoy</div>
-            <h2
-              className="s-title"
-              style={{
-                fontFamily: "var(--sans)",
-                fontSize: "clamp(38px,4.5vw,60px)",
-                fontWeight: 300,
-                lineHeight: 1.06,
-                letterSpacing: "-.02em",
-              }}
-            >
+            <h2 className="s-title contact-title">
               Tu exposición
               <br />
               en 30 minutos.
@@ -269,12 +260,29 @@ export function Contact() {
                   placeholder="Contanos brevemente tu situación actual…"
                 />
               </div>
-              <button type="submit" className="cf-submit" disabled={status !== "idle"}>
-                {status === "idle" && "Solicitar diagnóstico →"}
-                {status === "sending" && "Enviando…"}
+              <button
+                type="submit"
+                className={`cf-submit${status === "sending" ? " is-sending" : ""}`}
+                disabled={status !== "idle"}
+              >
+                {status === "idle" && (
+                  <>
+                    Solicitar diagnóstico <span aria-hidden="true">→</span>
+                  </>
+                )}
+                {status === "sending" && (
+                  <>
+                    <span className="cf-spinner" aria-hidden="true" />
+                    Enviando…
+                  </>
+                )}
                 {status === "sent" && "✓ Recibido — te contactamos en menos de 4 horas"}
               </button>
-              <p className="cf-note">Sin spam · Sin compromisos · Todo bajo NDA</p>
+              <p className="cf-note" role="status">
+                {status === "sent"
+                  ? "Se abrió tu cliente de correo con el mensaje listo para enviar."
+                  : "Sin spam · Sin compromisos · Todo bajo NDA"}
+              </p>
             </form>
           </Reveal>
         </div>

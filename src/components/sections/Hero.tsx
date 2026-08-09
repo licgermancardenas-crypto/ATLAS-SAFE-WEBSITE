@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Globe } from "@/components/Globe";
+import dynamic from "next/dynamic";
+
+// The globe is WebGL and purely decorative: keep it out of the first payload
+// so the hero headline (the LCP element) paints without waiting for it.
+const Globe = dynamic(() => import("@/components/Globe").then((m) => m.Globe), {
+  ssr: false,
+});
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -11,14 +17,29 @@ export function Hero() {
     const hero = heroRef.current;
     const spotlight = spotlightRef.current;
     if (!hero || !spotlight) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
 
-    const onMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
+    let frame = 0;
+    let x = 50;
+    let y = 40;
+
+    const paint = () => {
+      frame = 0;
       spotlight.style.background = `radial-gradient(520px circle at ${x}% ${y}%, rgba(18,48,28,.7) 0%, transparent 65%)`;
     };
+
+    // Coalesce pointer moves into one paint per frame.
+    const onMove = (e: MouseEvent) => {
+      x = (e.clientX / window.innerWidth) * 100;
+      y = (e.clientY / window.innerHeight) * 100;
+      if (!frame) frame = requestAnimationFrame(paint);
+    };
+
     hero.addEventListener("mousemove", onMove, { passive: true });
-    return () => hero.removeEventListener("mousemove", onMove);
+    return () => {
+      hero.removeEventListener("mousemove", onMove);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (
@@ -27,7 +48,7 @@ export function Hero() {
       <div className="hero-accent-line" />
       <Globe className="hero-globe" />
       <div className="hero-content">
-        <div className="hero-pre">Ciberseguridad e Inteligencia de Amenazas</div>
+        <p className="hero-pre">Ciberseguridad e Inteligencia de Amenazas</p>
         <h1 className="hero-title">
           La inteligencia
           <br />
@@ -43,7 +64,7 @@ export function Hero() {
           </p>
           <div className="hero-cta-group">
             <a href="#contact" className="cta-primary">
-              Solicitar diagnóstico →
+              Solicitar diagnóstico <span aria-hidden="true">→</span>
             </a>
             <a href="#services" className="cta-secondary">
               Ver servicios
