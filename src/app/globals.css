@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Tailwind's preflight points html at a system stack and code/pre/kbd at a mono
+   stack. Redirect both at Inter so nothing can fall back to a second face. */
+@theme {
+  --default-font-family: var(--sans);
+  --default-mono-font-family: var(--sans);
+}
+
 /* ══ TOKENS ════════════════════════════════════════════════════════════════ */
 :root {
   --void: #060608;
@@ -34,6 +41,8 @@ html {
 body {
   background: var(--void);
   color: var(--cream);
+  /* The only font-family in the stylesheet. Everything inherits from here —
+     form controls included, via Tailwind preflight's `font: inherit`. */
   font-family: var(--sans);
   font-weight: 400;
   line-height: 1.6;
@@ -79,7 +88,6 @@ a {
   z-index: 200;
   background: var(--accent);
   color: var(--void);
-  font-family: var(--sans);
   font-size: 13px;
   font-weight: 600;
   padding: 10px 20px;
@@ -130,7 +138,6 @@ nav.scrolled {
   object-fit: contain;
 }
 .nav-wordmark {
-  font-family: var(--sans);
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -141,7 +148,6 @@ nav.scrolled {
   background: var(--rule);
 }
 .nav-corp {
-  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.14em;
@@ -188,7 +194,6 @@ nav.scrolled {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--sans);
   font-size: 12px;
   font-weight: 600;
   color: var(--accent);
@@ -253,7 +258,7 @@ textarea:focus-visible {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   padding: calc(var(--nav-h) + 40px) var(--pad-x) 80px;
   overflow: hidden;
 }
@@ -276,7 +281,8 @@ textarea:focus-visible {
 }
 .hero-globe {
   position: absolute;
-  left: 50%;
+  /* Pushed off-centre so the globe fills the space the headline gave up. */
+  left: 68%;
   bottom: -42%;
   transform: translateX(-50%);
   width: min(1200px, 150vw);
@@ -297,9 +303,11 @@ textarea:focus-visible {
 .hero-content {
   position: relative;
   z-index: 1;
+  /* Left column: the headline no longer runs the full width of the viewport,
+     which leaves the right side to the globe. */
+  max-width: 720px;
 }
 .hero-pre {
-  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.2em;
@@ -316,25 +324,23 @@ textarea:focus-visible {
   background: var(--muted);
 }
 .hero-title {
-  font-family: var(--sans);
   font-weight: 300;
-  font-size: clamp(64px, 10.5vw, 152px);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  font-size: clamp(40px, 5.4vw, 82px);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
   margin-bottom: 0;
 }
-.hero-title .italic {
-  font-style: italic;
+.hero-title .soft {
   color: rgba(232, 237, 232, 0.6);
 }
 .hero-bottom {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-top: 48px;
-  padding-top: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 40px;
+  padding-top: 30px;
   border-top: 1px solid var(--rule);
-  gap: 40px;
+  gap: 30px;
 }
 .hero-sub {
   font-size: 16px;
@@ -354,7 +360,6 @@ textarea:focus-visible {
   flex-shrink: 0;
 }
 .cta-primary {
-  font-family: var(--sans);
   font-size: 13px;
   font-weight: 600;
   padding: 13px 28px;
@@ -397,7 +402,6 @@ textarea:focus-visible {
   gap: 10px;
 }
 .hero-scroll-cue span {
-  font-family: var(--sans);
   font-size: 8px;
   color: var(--muted);
   letter-spacing: 0.16em;
@@ -438,7 +442,6 @@ textarea:focus-visible {
   gap: 0;
   white-space: nowrap;
   animation: ticker 40s linear infinite;
-  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.06em;
@@ -474,7 +477,6 @@ textarea:focus-visible {
   margin: 0 auto;
 }
 .s-label {
-  font-family: var(--sans);
   font-size: 9px;
   color: var(--accent);
   letter-spacing: 0.2em;
@@ -491,14 +493,13 @@ textarea:focus-visible {
   background: var(--accent);
 }
 .s-title {
-  font-family: var(--sans);
   font-size: clamp(40px, 5vw, 68px);
   font-weight: 300;
   line-height: 1.06;
   letter-spacing: -0.02em;
 }
 .s-title em {
-  font-style: italic;
+  font-style: normal;
   color: rgba(232, 237, 232, 0.55);
 }
 
@@ -517,7 +518,6 @@ textarea:focus-visible {
   top: 100px;
 }
 .manifesto-lede {
-  font-family: var(--sans);
   font-size: clamp(22px, 2.4vw, 30px);
   font-weight: 300;
   line-height: 1.55;
@@ -553,7 +553,6 @@ textarea:focus-visible {
   align-items: start;
 }
 .diff-index {
-  font-family: var(--sans);
   font-size: 9px;
   color: var(--accent);
   letter-spacing: 0.1em;
@@ -619,7 +618,6 @@ textarea:focus-visible {
   transform: scaleY(1);
 }
 .svc-n {
-  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.08em;
@@ -627,7 +625,6 @@ textarea:focus-visible {
   align-self: start;
 }
 .svc-name {
-  font-family: var(--sans);
   font-size: clamp(20px, 2vw, 28px);
   font-weight: 400;
   line-height: 1.15;
@@ -640,7 +637,6 @@ textarea:focus-visible {
   max-width: 560px;
 }
 .svc-new {
-  font-family: var(--sans);
   font-size: 8px;
   color: var(--accent);
   border: 1px solid rgba(0, 184, 112, 0.25);
@@ -650,7 +646,6 @@ textarea:focus-visible {
   margin-left: 10px;
 }
 .svc-price {
-  font-family: var(--sans);
   font-size: 10px;
   color: var(--cream);
   text-align: right;
@@ -686,12 +681,10 @@ textarea:focus-visible {
   flex-wrap: wrap;
 }
 .practice-title {
-  font-family: var(--sans);
   font-size: 16px;
   font-weight: 600;
 }
 .practice-count {
-  font-family: var(--sans);
   font-size: 11px;
   color: var(--muted);
   letter-spacing: 0.04em;
@@ -812,7 +805,6 @@ textarea:focus-visible {
   background: var(--deep);
 }
 .num-val {
-  font-family: var(--sans);
   font-size: clamp(60px, 8vw, 100px);
   font-weight: 300;
   line-height: 0.9;
@@ -824,7 +816,6 @@ textarea:focus-visible {
   color: var(--accent);
 }
 .num-label {
-  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.12em;
@@ -856,7 +847,6 @@ textarea:focus-visible {
   border-collapse: collapse;
 }
 .inc-table thead th {
-  font-family: var(--sans);
   font-size: 8px;
   color: var(--muted);
   letter-spacing: 0.16em;
@@ -881,7 +871,6 @@ textarea:focus-visible {
   vertical-align: middle;
 }
 .td-yr {
-  font-family: var(--sans);
   font-size: 10px;
   color: var(--muted);
   width: 56px;
@@ -898,7 +887,6 @@ textarea:focus-visible {
 }
 .td-cost {
   text-align: right;
-  font-family: var(--sans);
   font-size: 11px;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
@@ -920,7 +908,6 @@ textarea:focus-visible {
   text-align: center;
 }
 .roi-n {
-  font-family: var(--sans);
   font-size: 36px;
   font-weight: 300;
   color: var(--accent);
@@ -933,7 +920,6 @@ textarea:focus-visible {
   color: var(--accent);
 }
 .roi-l {
-  font-family: var(--sans);
   font-size: 8px;
   color: var(--muted);
   letter-spacing: 0.1em;
@@ -954,7 +940,6 @@ textarea:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--sans);
   font-size: 8px;
   color: var(--accent);
   letter-spacing: 0.14em;
@@ -1008,7 +993,6 @@ textarea:focus-visible {
   justify-content: space-between;
 }
 .panel-title {
-  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.1em;
@@ -1017,7 +1001,6 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--sans);
   font-size: 8px;
   color: var(--accent);
 }
@@ -1051,7 +1034,6 @@ textarea:focus-visible {
   border-right: none;
 }
 .pkpi-v {
-  font-family: var(--sans);
   font-size: 28px;
   font-weight: 400;
   line-height: 1;
@@ -1059,7 +1041,6 @@ textarea:focus-visible {
   font-variant-numeric: tabular-nums;
 }
 .pkpi-l {
-  font-family: var(--sans);
   font-size: 7px;
   color: var(--muted);
   letter-spacing: 0.1em;
@@ -1080,7 +1061,6 @@ textarea:focus-visible {
   background: rgba(255, 255, 255, 0.02);
 }
 .psev {
-  font-family: var(--sans);
   font-size: 7px;
   font-weight: 600;
   padding: 2px 6px;
@@ -1109,7 +1089,6 @@ textarea:focus-visible {
   color: var(--cream);
 }
 .pmeta {
-  font-family: var(--sans);
   font-size: 8px;
   color: var(--muted);
 }
@@ -1157,7 +1136,6 @@ textarea:focus-visible {
   margin-bottom: 14px;
 }
 .cc-tk {
-  font-family: var(--sans);
   font-size: 9px;
   color: var(--accent);
   letter-spacing: 0.04em;
@@ -1235,7 +1213,6 @@ textarea:focus-visible {
   gap: 5px;
 }
 .cf-label {
-  font-family: var(--sans);
   font-size: 8px;
   color: rgba(6, 6, 8, 0.4);
   letter-spacing: 0.14em;
@@ -1248,7 +1225,6 @@ textarea:focus-visible {
   border: 1px solid rgba(6, 6, 8, 0.12);
   color: var(--void);
   padding: 11px 14px;
-  font-family: var(--sans);
   font-size: 16px;
   outline: none;
   transition: border-color 0.2s;
@@ -1277,7 +1253,6 @@ textarea:focus-visible {
   min-height: 80px;
 }
 .cf-submit {
-  font-family: var(--sans);
   font-size: 13px;
   font-weight: 600;
   padding: 14px;
@@ -1313,7 +1288,6 @@ textarea:focus-visible {
   }
 }
 .cf-note {
-  font-family: var(--sans);
   font-size: 8px;
   color: rgba(6, 6, 8, 0.3);
   text-align: center;
@@ -1352,7 +1326,6 @@ footer {
   color: var(--cream);
 }
 .footer-copy {
-  font-family: var(--sans);
   font-size: 9px;
   color: var(--muted);
   letter-spacing: 0.06em;
@@ -1398,7 +1371,7 @@ footer {
   letter-spacing: -0.03em;
 }
 .page-title em {
-  font-style: italic;
+  font-style: normal;
   color: rgba(232, 237, 232, 0.55);
 }
 .page-lede {
@@ -1518,7 +1491,6 @@ footer {
   border: none;
   outline: none;
   color: var(--cream);
-  font-family: var(--sans);
   font-size: 16px;
   padding: 14px 0;
 }
@@ -1533,7 +1505,6 @@ footer {
   border: none;
   cursor: pointer;
   color: var(--muted);
-  font-family: var(--sans);
   font-size: 11px;
   letter-spacing: 0.06em;
   padding: 4px;
@@ -1904,6 +1875,13 @@ footer {
   .hero {
     padding-bottom: 64px;
   }
+  .hero-content {
+    max-width: none;
+  }
+  /* No left column to clear once the layout stacks: re-centre the globe. */
+  .hero-globe {
+    left: 50%;
+  }
   .hero-scroll-cue {
     display: none;
   }
@@ -1997,12 +1975,11 @@ footer {
 /* Phone: everything single column, CTAs full width. */
 @media (max-width: 720px) {
   .hero-title {
-    font-size: clamp(44px, 12.5vw, 96px);
+    font-size: clamp(34px, 8.4vw, 52px);
   }
   .hero-bottom {
-    flex-direction: column;
     align-items: stretch;
-    gap: 28px;
+    gap: 26px;
   }
   .hero-cta-group {
     flex-direction: column;

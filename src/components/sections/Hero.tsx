@@ -54,7 +54,7 @@ export function Hero() {
           <br />
           detrás de
           <br />
-          <span className="italic">cada defensa.</span>
+          <span className="soft">cada defensa.</span>
         </h1>
         <div className="hero-bottom">
           <p className="hero-sub">
